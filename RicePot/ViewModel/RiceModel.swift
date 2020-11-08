@@ -39,7 +39,8 @@ class RiceModel : ObservableObject {
         case .StrongHeat :
             state = .WeakHeat
         case .WeakHeat:
-            //MARK: - Return Home
+            state = .Boil
+        case .Boil:
             state = .Home
         }
     }

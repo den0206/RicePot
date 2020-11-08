@@ -16,9 +16,22 @@ struct WeakHeatView: View {
         
         VStack(spacing : 20) {
             
+            HStack {
+                Spacer()
+                
+                Button(action: {
+                    vm.skipTimer(envModel: model)
+                }) {
+                    Image(systemName: "arrowshape.turn.up.right")
+                        .font(.system(size: 24))
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding()
+            
             Text("Weak")
             
-            ProgressCircleView(circleColor: Color.red, maxValue: vm.heatTimer, progress: $vm.counter, timeString: vm.timeFormatter)
+            ProgressCircleView(circleColor: Color.blue, maxValue: vm.heatTimer, progress: $vm.counter, timeString: vm.timeFormatter)
                 .onReceive(vm.timer) { (_) in
                     vm.onComplete(envModel: model)
                 }
@@ -36,6 +49,7 @@ struct WeakHeatView: View {
                 }, color: vm.isActive ? Color.red : Color.green ,text: vm.isActive ? "一時停止" : "再開")
                 
             }
+            .padding()
 
         }
         .onAppear {

@@ -40,8 +40,10 @@ class HeatViewModel : ObservableObject {
         
         switch heatType {
         case .Strong:
+            self.heatType = .Strong
             self.counter = rice.highHeatTime
         case .Weak:
+            self.heatType = .Weak
             self.counter = rice.lowHeatTime
         }
         
@@ -109,6 +111,13 @@ class HeatViewModel : ObservableObject {
         envModel.state = .Home
     }
     
+    func skipTimer(envModel : RiceModel) {
+        timer.upstream.connect().cancel()
+        isActive = false
+        
+        envModel.nextPage(Optional<Never>.none)
+        
+    }
     
     
     

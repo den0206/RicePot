@@ -17,6 +17,8 @@ struct WaterAmountView: View {
         
         VStack(spacing : 10) {
             
+            // TODO: - Eater image
+
             Text("\(Int(model.rice.waterAmount)) ml")
                 .foregroundColor(.black)
                 .font(.headline)

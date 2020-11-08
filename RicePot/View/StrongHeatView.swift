@@ -17,6 +17,21 @@ struct StrongHeatView: View {
         
         VStack(spacing : 20) {
             
+            HStack {
+                Spacer()
+                
+                Button(action: {
+                    vm.skipTimer(envModel: model)
+                }) {
+                    Image(systemName: "arrowshape.turn.up.right")
+                        .font(.system(size: 24))
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding()
+            
+            Spacer()
+            
             Text("Strong")
 
            
@@ -26,7 +41,7 @@ struct StrongHeatView: View {
                 }
             
             Spacer()
-            
+                        
             HStack(spacing : 10) {
                 
                 CustomButton(action: {
@@ -38,6 +53,7 @@ struct StrongHeatView: View {
                 }, color: vm.isActive ? Color.red : Color.green ,text: vm.isActive ? "一時停止" : "再開")
                 
             }
+            .padding()
          
         }
         .onAppear {

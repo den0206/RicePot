@@ -7,10 +7,17 @@
 
 import SwiftUI
 
+enum IntervalType {
+    case Puton
+    case Boil
+}
+
 struct IntervalView: View {
     
     @EnvironmentObject var model : RiceModel
     @StateObject  var vm = IntervalViewModel()
+    
+    var type : IntervalType
     
     var body: some View {
         
@@ -30,6 +37,14 @@ struct IntervalView: View {
             .padding()
             
             Spacer()
+            
+            switch type {
+            
+            case .Puton :
+                Text("Puton")
+            case .Boil :
+                Text("Boil")
+            }
        
             ProgressCircleView(circleColor: Color.green, maxValue: vm.intervalTimer, progress: $vm.counter, timeString: vm.timeFormatter)
                 .onReceive(vm.timer) { (_) in
