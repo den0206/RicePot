@@ -18,6 +18,9 @@
 		3A029C3525557CB4002A4790 /* WashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A029C3425557CB4002A4790 /* WashView.swift */; };
 		3A7F76C925558585006F0C31 /* GlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F76C825558585006F0C31 /* GlobalView.swift */; };
 		3AD4592B2557B2B00096F295 /* WaterAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4592A2557B2B00096F295 /* WaterAmountView.swift */; };
+		3AD5D6892557BF6100F7FC44 /* StrongHeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5D6882557BF6100F7FC44 /* StrongHeatView.swift */; };
+		3AD5D68C2557C02000F7FC44 /* HeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5D68B2557C02000F7FC44 /* HeatViewModel.swift */; };
+		3AD5D6902557C80500F7FC44 /* WeakHeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5D68F2557C80500F7FC44 /* WeakHeatView.swift */; };
 		3ADBC9872556171C003D31E0 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBC9862556171C003D31E0 /* ProgressCircleView.swift */; };
 		3ADBC98E25561ADC003D31E0 /* IntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBC98D25561ADC003D31E0 /* IntervalView.swift */; };
 		3ADBC99225561CEF003D31E0 /* IntervalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBC99125561CEF003D31E0 /* IntervalViewModel.swift */; };
@@ -37,6 +40,9 @@
 		3A029C3425557CB4002A4790 /* WashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashView.swift; sourceTree = "<group>"; };
 		3A7F76C825558585006F0C31 /* GlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalView.swift; sourceTree = "<group>"; };
 		3AD4592A2557B2B00096F295 /* WaterAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterAmountView.swift; sourceTree = "<group>"; };
+		3AD5D6882557BF6100F7FC44 /* StrongHeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongHeatView.swift; sourceTree = "<group>"; };
+		3AD5D68B2557C02000F7FC44 /* HeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatViewModel.swift; sourceTree = "<group>"; };
+		3AD5D68F2557C80500F7FC44 /* WeakHeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakHeatView.swift; sourceTree = "<group>"; };
 		3ADBC9862556171C003D31E0 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 		3ADBC98D25561ADC003D31E0 /* IntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalView.swift; sourceTree = "<group>"; };
 		3ADBC99125561CEF003D31E0 /* IntervalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalViewModel.swift; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 				3A029C3425557CB4002A4790 /* WashView.swift */,
 				3ADBC98D25561ADC003D31E0 /* IntervalView.swift */,
 				3AD4592A2557B2B00096F295 /* WaterAmountView.swift */,
+				3AD5D6882557BF6100F7FC44 /* StrongHeatView.swift */,
+				3AD5D68F2557C80500F7FC44 /* WeakHeatView.swift */,
 				3A7F76C72555856D006F0C31 /* GlobalView */,
 			);
 			path = View;
@@ -118,6 +126,7 @@
 			children = (
 				3A029C2225556E3C002A4790 /* RiceModel.swift */,
 				3ADBC99125561CEF003D31E0 /* IntervalViewModel.swift */,
+				3AD5D68B2557C02000F7FC44 /* HeatViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -210,8 +219,11 @@
 				3AD4592B2557B2B00096F295 /* WaterAmountView.swift in Sources */,
 				3A029C2D25556FD9002A4790 /* HomeView.swift in Sources */,
 				3A029C1125556DC9002A4790 /* RicePotApp.swift in Sources */,
+				3AD5D6902557C80500F7FC44 /* WeakHeatView.swift in Sources */,
+				3AD5D68C2557C02000F7FC44 /* HeatViewModel.swift in Sources */,
 				3A029C3525557CB4002A4790 /* WashView.swift in Sources */,
 				3A7F76C925558585006F0C31 /* GlobalView.swift in Sources */,
+				3AD5D6892557BF6100F7FC44 /* StrongHeatView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

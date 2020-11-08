@@ -33,7 +33,7 @@ struct IntervalView: View {
        
             ProgressCircleView(circleColor: Color.green, maxValue: vm.intervalTimer, progress: $vm.counter, timeString: vm.timeFormatter)
                 .onReceive(vm.timer) { (_) in
-                    vm.onComplete()
+                    vm.onComplete(envModel: model)
                 }
             
             Spacer()

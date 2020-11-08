@@ -13,6 +13,9 @@ enum ViewState {
     case Wash
     case Intarval
     case WaterAmount
+    case StrongHeat
+    case WeakHeat
+
 }
 
 
@@ -32,7 +35,10 @@ struct RootView: View {
             IntervalView()
         case .WaterAmount :
             WaterAmountView()
-            
+        case .StrongHeat:
+            StrongHeatView()
+        case .WeakHeat :
+            WeakHeatView()
         }
     }
 }

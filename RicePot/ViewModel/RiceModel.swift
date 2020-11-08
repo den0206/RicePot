@@ -35,8 +35,12 @@ class RiceModel : ObservableObject {
         case .Intarval :
             state = .WaterAmount
         case .WaterAmount :
-            print("waterAmount")
-       
+            state = .StrongHeat
+        case .StrongHeat :
+            state = .WeakHeat
+        case .WeakHeat:
+            //MARK: - Return Home
+            state = .Home
         }
     }
     

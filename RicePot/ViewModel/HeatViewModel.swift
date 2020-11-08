@@ -1,43 +1,54 @@
 //
-//  IntervalViewModel.swift
+//  HeatViewModel.swift
 //  RicePot
 //
-//  Created by 酒井ゆうき on 2020/11/07.
+//  Created by 酒井ゆうき on 2020/11/08.
 //
 
 import Foundation
 import SwiftUI
 
-class IntervalViewModel : ObservableObject {
+enum HeatType {
+    
+    case Strong
+    case Weak
+    
+}
+
+class HeatViewModel : ObservableObject {
     
     @Published var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Published var counter : CGFloat = 0.0
-    
     @Published var isActive : Bool = false
     
-    var rice : Rice = .init(amount: 1)
+    @Published var heatType : HeatType = .Strong
     
-    var intervalTimer : CGFloat {
-        rice.interval
+    var rice = Rice(amount: 1)
+    
+    var heatTimer : CGFloat {
+        switch heatType {
+        case .Strong :
+            return rice.highHeatTime
+        case  .Weak :
+            return rice.lowHeatTime
+        }
     }
     
-    
-    func setInterval(rice : Rice) {
+    func setRiceObj(rice : Rice , heatType : HeatType) {
+        
         self.rice = rice
-        self.counter = rice.interval
-    }
-    
-    var timeFormatter : String {
         
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.minute, .second]
-        formatter.zeroFormattingBehavior = [.pad]
+        switch heatType {
+        case .Strong:
+            self.counter = rice.highHeatTime
+        case .Weak:
+            self.counter = rice.lowHeatTime
+        }
         
-        return formatter.string(from: TimeInterval(counter)) ?? "00:00:00"
     }
     
     func onComplete(envModel : RiceModel) {
+        
         
         if !isActive {
             isActive = true
@@ -48,19 +59,31 @@ class IntervalViewModel : ObservableObject {
         }
         
         switch counter {
-        
+       
         case 0 :
-            
+        
             timer.upstream.connect().cancel()
             isActive = false
             print("finish")
-            
-            /// next-page
+            //MARK: - Finish
             envModel.nextPage(Optional<Never>.none)
-            
-        default :
+     
+        default:
             break
         }
+        
+        
+    }
+    
+    
+    var timeFormatter : String {
+        
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = [.pad]
+        
+        return formatter.string(from: TimeInterval(counter)) ?? "00:00:00"
     }
     
     func stopTimer() {
@@ -74,7 +97,6 @@ class IntervalViewModel : ObservableObject {
             timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
             
         }
-
         isActive.toggle()
         
     }
@@ -87,11 +109,11 @@ class IntervalViewModel : ObservableObject {
         envModel.state = .Home
     }
     
-    func skipTimer(envModel : RiceModel) {
-        timer.upstream.connect().cancel()
-        isActive = false
-        
-        envModel.nextPage(Optional<Never>.none)
-        
-    }
+    
+    
+    
+    
+    
+    
+    
 }
