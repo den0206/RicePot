@@ -11,6 +11,16 @@
 		3A029C1325556DC9002A4790 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A029C1225556DC9002A4790 /* ContentView.swift */; };
 		3A029C1525556DCA002A4790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A029C1425556DCA002A4790 /* Assets.xcassets */; };
 		3A029C1825556DCA002A4790 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A029C1725556DCA002A4790 /* Preview Assets.xcassets */; };
+		3A029C2325556E3C002A4790 /* RiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A029C2225556E3C002A4790 /* RiceModel.swift */; };
+		3A029C2825556F05002A4790 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A029C2725556F05002A4790 /* RootView.swift */; };
+		3A029C2D25556FD9002A4790 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A029C2C25556FD9002A4790 /* HomeView.swift */; };
+		3A029C312555754C002A4790 /* Rice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A029C302555754C002A4790 /* Rice.swift */; };
+		3A029C3525557CB4002A4790 /* WashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A029C3425557CB4002A4790 /* WashView.swift */; };
+		3A7F76C925558585006F0C31 /* GlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F76C825558585006F0C31 /* GlobalView.swift */; };
+		3AD4592B2557B2B00096F295 /* WaterAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4592A2557B2B00096F295 /* WaterAmountView.swift */; };
+		3ADBC9872556171C003D31E0 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBC9862556171C003D31E0 /* ProgressCircleView.swift */; };
+		3ADBC98E25561ADC003D31E0 /* IntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBC98D25561ADC003D31E0 /* IntervalView.swift */; };
+		3ADBC99225561CEF003D31E0 /* IntervalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBC99125561CEF003D31E0 /* IntervalViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +30,16 @@
 		3A029C1425556DCA002A4790 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A029C1725556DCA002A4790 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3A029C1925556DCA002A4790 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A029C2225556E3C002A4790 /* RiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiceModel.swift; sourceTree = "<group>"; };
+		3A029C2725556F05002A4790 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		3A029C2C25556FD9002A4790 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3A029C302555754C002A4790 /* Rice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rice.swift; sourceTree = "<group>"; };
+		3A029C3425557CB4002A4790 /* WashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashView.swift; sourceTree = "<group>"; };
+		3A7F76C825558585006F0C31 /* GlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalView.swift; sourceTree = "<group>"; };
+		3AD4592A2557B2B00096F295 /* WaterAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterAmountView.swift; sourceTree = "<group>"; };
+		3ADBC9862556171C003D31E0 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		3ADBC98D25561ADC003D31E0 /* IntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalView.swift; sourceTree = "<group>"; };
+		3ADBC99125561CEF003D31E0 /* IntervalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				3A029C1025556DC9002A4790 /* RicePotApp.swift */,
+				3A029C2125556E22002A4790 /* Model */,
+				3A029C2F25557531002A4790 /* ViewModel */,
+				3A029C2625556EED002A4790 /* View */,
 				3A029C1225556DC9002A4790 /* ContentView.swift */,
 				3A029C1425556DCA002A4790 /* Assets.xcassets */,
 				3A029C1925556DCA002A4790 /* Info.plist */,
@@ -67,6 +90,45 @@
 				3A029C1725556DCA002A4790 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3A029C2125556E22002A4790 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A029C302555754C002A4790 /* Rice.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A029C2625556EED002A4790 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A029C2725556F05002A4790 /* RootView.swift */,
+				3A029C2C25556FD9002A4790 /* HomeView.swift */,
+				3A029C3425557CB4002A4790 /* WashView.swift */,
+				3ADBC98D25561ADC003D31E0 /* IntervalView.swift */,
+				3AD4592A2557B2B00096F295 /* WaterAmountView.swift */,
+				3A7F76C72555856D006F0C31 /* GlobalView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A029C2F25557531002A4790 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3A029C2225556E3C002A4790 /* RiceModel.swift */,
+				3ADBC99125561CEF003D31E0 /* IntervalViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3A7F76C72555856D006F0C31 /* GlobalView */ = {
+			isa = PBXGroup;
+			children = (
+				3ADBC9862556171C003D31E0 /* ProgressCircleView.swift */,
+				3A7F76C825558585006F0C31 /* GlobalView.swift */,
+			);
+			path = GlobalView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +200,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A029C2825556F05002A4790 /* RootView.swift in Sources */,
+				3ADBC98E25561ADC003D31E0 /* IntervalView.swift in Sources */,
+				3ADBC9872556171C003D31E0 /* ProgressCircleView.swift in Sources */,
 				3A029C1325556DC9002A4790 /* ContentView.swift in Sources */,
+				3A029C312555754C002A4790 /* Rice.swift in Sources */,
+				3A029C2325556E3C002A4790 /* RiceModel.swift in Sources */,
+				3ADBC99225561CEF003D31E0 /* IntervalViewModel.swift in Sources */,
+				3AD4592B2557B2B00096F295 /* WaterAmountView.swift in Sources */,
+				3A029C2D25556FD9002A4790 /* HomeView.swift in Sources */,
 				3A029C1125556DC9002A4790 /* RicePotApp.swift in Sources */,
+				3A029C3525557CB4002A4790 /* WashView.swift in Sources */,
+				3A7F76C925558585006F0C31 /* GlobalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
