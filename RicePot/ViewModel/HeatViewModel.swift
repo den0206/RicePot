@@ -8,20 +8,30 @@
 import Foundation
 import SwiftUI
 
-enum HeatType {
-    
-    case Strong
-    case Weak
-    
+
+enum AlertType {
+    case Skip
+    case Finish
 }
 
 class HeatViewModel : ObservableObject {
+    
     
     @Published var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Published var counter : CGFloat = 0.0
     @Published var isActive : Bool = false
     
     @Published var heatType : HeatType = .Strong
+    
+    @Published var showAlert = false
+    @Published var alert : Alert = Alert(title: Text(""))
+    
+    let calender = Calendar(identifier: .japanese)
+    @Published var startDate : Date? = nil
+    @Published var returnDate : Date? = nil
+    
+    
+    
     
     var rice = Rice(amount: 1)
     
@@ -49,6 +59,7 @@ class HeatViewModel : ObservableObject {
         
     }
     
+   
     func onComplete(envModel : RiceModel) {
         
         
@@ -119,10 +130,33 @@ class HeatViewModel : ObservableObject {
         
     }
     
+    func showAlert(alerType : AlertType , envModel : RiceModel) {
+        
+        
+        switch alerType {
+        case .Skip :
+            self.alert = Alert(title: Text("この作業を飛ばしますか?"), primaryButton: .cancel(), secondaryButton: .default(Text("スキップ"), action: {
+                self.skipTimer(envModel: envModel)
+            }))
+            
+        case .Finish :
+            self.alert = Alert(title: Text("終了しますか?"), primaryButton: .cancel(), secondaryButton: .destructive(Text("終了する"), action: {
+                self.finishTimer(envModel: envModel)
+            }))
+        }
+        
+        showAlert.toggle()
+    }
     
+    func caluculateBackground() {
+        
+        guard startDate != nil && returnDate != nil else {return}
+        
+        let diff = calender.dateComponents([.second], from: startDate!, to: returnDate!)
+        
+        counter -= CGFloat(diff.second!)
+    }
     
-    
-    
-    
+
     
 }

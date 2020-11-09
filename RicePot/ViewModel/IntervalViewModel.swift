@@ -12,7 +12,6 @@ class IntervalViewModel : ObservableObject {
     
     @Published var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Published var counter : CGFloat = 0.0
-    
     @Published var isActive : Bool = false
     
     var rice : Rice = .init(amount: 1)

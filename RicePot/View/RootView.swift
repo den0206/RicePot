@@ -11,6 +11,7 @@ enum ViewState {
     
     case Home
     case Wash
+    case Predicate
     case Intarval
     case WaterAmount
     case StrongHeat
@@ -32,14 +33,16 @@ struct RootView: View {
             HomeView()
         case .Wash :
             WashView()
+        case .Predicate :
+            PredicateView()
         case .Intarval :
             IntervalView(type: .Puton)
         case .WaterAmount :
             WaterAmountView()
         case .StrongHeat:
-            StrongHeatView()
+            HeatView(type: .Strong)
         case .WeakHeat :
-            WeakHeatView()
+            HeatView(type: .Weak)
         case .Boil :
             IntervalView(type: .Boil)
         }

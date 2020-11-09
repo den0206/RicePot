@@ -31,6 +31,8 @@ class RiceModel : ObservableObject {
             setRiceAmount(amount: value as! Int)
             state = .Wash
         case .Wash :
+            state = .Predicate
+        case .Predicate :
             state = .Intarval
         case .Intarval :
             state = .WaterAmount
