@@ -47,14 +47,14 @@ struct HeatView: View {
                 
                 Text("Strong")
 
-                ProgressCircleView(circleColor: Color.red, maxValue: vm.heatTimer, progress: $vm.counter, timeString: vm.timeFormatter)
+                ProgressCircleView(circleColor: Color.red, maxValue: vm.heatTimer, progress: $vm.counter, timeString: vm.timeFormatter, predicateTime: vm.predicateTimeString)
                     .onReceive(vm.timer) { (_) in
                         vm.onComplete(envModel: model)
                     }
             case .Weak :
                 Text("Weak")
                 
-                ProgressCircleView(circleColor: Color.blue, maxValue: vm.heatTimer, progress: $vm.counter, timeString: vm.timeFormatter)
+                ProgressCircleView(circleColor: Color.blue, maxValue: vm.heatTimer, progress: $vm.counter, timeString: vm.timeFormatter, predicateTime: vm.predicateTimeString)
                     .onReceive(vm.timer) { (_) in
                         vm.onComplete(envModel: model)
                     }

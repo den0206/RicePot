@@ -14,6 +14,8 @@ enum IntervalType {
 
 struct IntervalView: View {
     
+    @Environment(\.scenePhase) private var scenePhase
+
     @EnvironmentObject var model : RiceModel
     @StateObject  var vm = IntervalViewModel()
     
@@ -46,7 +48,7 @@ struct IntervalView: View {
                 Text("Boil")
             }
        
-            ProgressCircleView(circleColor: Color.green, maxValue: vm.intervalTimer, progress: $vm.counter, timeString: vm.timeFormatter)
+            ProgressCircleView(circleColor: Color.green, maxValue: vm.intervalTimer, progress: $vm.counter, timeString: vm.timeFormatter, predicateTime: vm.predicateTimeString)
                 .onReceive(vm.timer) { (_) in
                     vm.onComplete(envModel: model)
                 }
@@ -72,6 +74,18 @@ struct IntervalView: View {
         }
         .onAppear {
             vm.setInterval(rice: model.rice)
+        }
+        .onChange(of: scenePhase) { (phase) in
+            
+            if phase == .background {
+                vm.startDate = Date()
+               
+                
+            } else if phase == .active {
+                vm.returnDate = Date()
+                vm.caluculateBackground()
+                
+            }
         }
         
     }

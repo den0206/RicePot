@@ -30,8 +30,7 @@ class HeatViewModel : ObservableObject {
     @Published var startDate : Date? = nil
     @Published var returnDate : Date? = nil
     
-    
-    
+    var predicateTimeString = String()
     
     var rice = Rice(amount: 1)
     
@@ -42,6 +41,16 @@ class HeatViewModel : ObservableObject {
         case  .Weak :
             return rice.lowHeatTime
         }
+    }
+    
+    var timeFormatter : String {
+        
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = [.pad]
+        
+        return formatter.string(from: TimeInterval(counter)) ?? "00:00:00"
     }
     
     func setRiceObj(rice : Rice , heatType : HeatType) {
@@ -56,6 +65,22 @@ class HeatViewModel : ObservableObject {
             self.heatType = .Weak
             self.counter = rice.lowHeatTime
         }
+        
+        setPredicate()
+        
+    }
+    
+    func setPredicate() {
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        formatter.locale = Locale.current
+               
+        guard let modifiedDate = Calendar.current.date(byAdding: .second, value: Int(self.counter), to: currentDate) else {return}
+        
+        predicateTimeString = formatter.string(from: modifiedDate)
         
     }
     
@@ -89,15 +114,7 @@ class HeatViewModel : ObservableObject {
     }
     
     
-    var timeFormatter : String {
-        
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.minute, .second]
-        formatter.zeroFormattingBehavior = [.pad]
-        
-        return formatter.string(from: TimeInterval(counter)) ?? "00:00:00"
-    }
+ 
     
     func stopTimer() {
         

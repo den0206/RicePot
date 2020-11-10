@@ -10,15 +10,61 @@ import SwiftUI
 struct PredicateView: View {
     
     @EnvironmentObject var model : RiceModel
-
+    @StateObject var vm  = PredicateViewModel()
+    
     var body: some View {
         
-        VStack {
+        VStack(spacing : 10) {
+            
+            Text("予測時間")
+                .padding()
+            
+            Spacer()
+            
+            ForEach(Array(zip(vm.actions, vm.dateStrings)), id : \.0) { item in
+                
+                PredicateCell(action: item.0, dateString: item.1)
+                
+            }
+            
+            Spacer()
+            
             CustomButton(action: {
                 model.nextPage(Optional<Never>.none)
             })
             .padding()
         }
+        .onAppear {
+            vm.caluculateDate(model: model)
+        }
+    }
+
+}
+
+
+struct PredicateCell : View {
+    
+    var action : String
+    var dateString : String
+    
+    var body: some View {
+        
+        
+        Rectangle()
+            .fill(Color.black.opacity(0.2))
+            .frame(width: 150, height: 100)
+            .cornerRadius(8)
+            .overlay(
+                
+                VStack {
+                    Text(action)
+                    Text(dateString)
+                }
+               
+            )
+                
+            
+        
     }
 }
 

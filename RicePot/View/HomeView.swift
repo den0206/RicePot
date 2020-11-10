@@ -12,9 +12,25 @@ struct HomeView: View {
     @EnvironmentObject var model : RiceModel
     @State private var selectAmount : Int = 1
     
+    @AppStorage("lastDate") var lastDate: String = ""
+
+    
     var body: some View {
         
-        VStack(spacing : 35) {
+        VStack(spacing : 25) {
+            
+            if lastDate != "" {
+                Group {
+                    Text("前回炊いた日")
+                        .foregroundColor(.gray)
+                    Text(lastDate)
+                        .fontWeight(.bold)
+
+                }
+                .font(.system(size: 24))
+                
+                
+            }
             
             Picker("", selection: $selectAmount) {
                 
@@ -24,10 +40,7 @@ struct HomeView: View {
             }
             .labelsHidden()
             .padding()
-            
-           
-            
-            
+        
             Text("\(selectAmount) 合炊く")
                 .font(.system(size: 35))
                 .font(.headline)
@@ -36,7 +49,7 @@ struct HomeView: View {
             CustomButton {
                 model.nextPage(selectAmount)
 
-            }
+            }.padding()
         
             
         }

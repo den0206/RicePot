@@ -11,9 +11,12 @@ import SwiftUI
 
 class RiceModel : ObservableObject {
     
+    
     @Published var state : ViewState = .Home
     @Published var rice : Rice = .init(amount : 1)
- 
+    
+    @AppStorage("lastDate") var lastDate: String = ""
+
     func setRiceAmount(amount : Int) {
       
         switch amount {
@@ -44,7 +47,17 @@ class RiceModel : ObservableObject {
             state = .Boil
         case .Boil:
             state = .Home
+            setLastDate()
         }
+    }
+    
+    func setLastDate() {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM", options: 0, locale: Locale(identifier: "ja_JP"))
+        
+        lastDate = dateFormatter.string(from: Date())
     }
     
     
