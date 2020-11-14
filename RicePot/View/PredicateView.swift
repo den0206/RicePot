@@ -50,10 +50,9 @@ struct PredicateCell : View {
     var body: some View {
         
         
-        Rectangle()
-            .fill(Color.black.opacity(0.2))
+        RoundedRectangle(cornerRadius: 8)
+            .fill(Color.blue.opacity(0.2))
             .frame(width: 150, height: 100)
-            .cornerRadius(8)
             .overlay(
                 
                 VStack {

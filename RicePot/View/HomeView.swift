@@ -40,6 +40,9 @@ struct HomeView: View {
             }
             .labelsHidden()
             .padding()
+            .onAppear {
+                selectAmount = model.amount
+            }
         
             Text("\(selectAmount) 合炊く")
                 .font(.system(size: 35))

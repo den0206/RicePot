@@ -29,7 +29,7 @@ struct IntervalView: View {
                 Spacer()
                 
                 Button(action: {
-                    vm.skipTimer(envModel: model)
+                    vm.configureAlert(alerType: .Skip, envModel: model)
                 }) {
                     Image(systemName: "arrowshape.turn.up.right")
                         .font(.system(size: 24))
@@ -59,7 +59,7 @@ struct IntervalView: View {
             HStack(spacing :  10) {
                 
                 CustomButton(action: {
-                    vm.finishTimer(envModel: model)
+                    vm.configureAlert(alerType: .Finish, envModel: model)
                 }, color: Color.blue, text: "終了する")
                
                 CustomButton(action: {
@@ -72,6 +72,9 @@ struct IntervalView: View {
         
             
         }
+        .alert(isPresented: $vm.showAlert, content: { () -> Alert in
+            vm.alert
+        })
         .onAppear {
             vm.setInterval(rice: model.rice)
         }

@@ -21,6 +21,7 @@ struct WashView: View {
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding()
+                        
             Text("※無洗米を除く")
                 .font(.system(size: 25))
                 .font(.caption2)
@@ -33,11 +34,11 @@ struct WashView: View {
             
             
         }
-        
-        
-        
+ 
     }
 }
+
+
 
 struct WashView_Previews: PreviewProvider {
     static var previews: some View {

@@ -16,7 +16,7 @@ struct Rice {
    
     let interval : CGFloat = 1800
     
-    let waterAmount : CGFloat
+    var waterAmount : CGFloat
     let highHeatTime : CGFloat
     let lowHeatTime : CGFloat
     

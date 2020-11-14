@@ -1,64 +1,17 @@
 //
-//  FillWaterView.swift
+//  WaterSlider.swift
 //  RicePot
 //
-//  Created by 酒井ゆうき on 2020/11/08.
+//  Created by 酒井ゆうき on 2020/11/12.
 //
 
 import SwiftUI
 
-struct WaterAmountView: View {
-    
-    @EnvironmentObject var model : RiceModel
-    
-    @State private var showAlert = false
-    
-    var body: some View {
-        
-        VStack(spacing : 10) {
-            
-           Text("下記の容量の水に浸します")
-            .font(.system(size: 24))
-            .font(.headline)
-            .fontWeight(.bold)
-            .padding()
-
-            WaterPotView(progress: $model.rice.waterAmount)
-                .padding()
-            
-            Spacer()
-            
-            HStack(spacing : 10) {
-                
-                CustomButton(action: {
-                    showAlert = true
-                }, color: Color.red, text: "終了する")
-                .alert(isPresented: $showAlert) { () -> Alert in
-                    
-                    Alert(title: Text("終了しますか?"), primaryButton: .cancel(Text("キャンセル")), secondaryButton: .destructive(Text("終了する"), action: {
-                        
-                        model.rice = .init(amount: 1)
-                        model.state = .Home
-                        
-                    }))
-                }
-                
-                CustomButton(action: {
-                    model.nextPage(Optional<Never>.none)
-                })
-             
-            }
-            .padding()
-        }
-    
-    }
-}
-struct WaterPotView : View {
-    
+struct WaterSlider: View {
     var w = CGFloat(250)
     var h = CGFloat(350)
     
-    @Binding var progress : CGFloat
+    @State private var progress : CGFloat = 0.4
     @State var phase :CGFloat = 0.0
     
     @State private var a = false
@@ -73,17 +26,31 @@ struct WaterPotView : View {
     }
     
     var body: some View {
+        
         ZStack {
             
+            Color.black
+            
             RoundedRectangle(cornerRadius: 8)
-                .stroke(lineWidth: 6)
-                .fill(Color.black)
+                .stroke(lineWidth: 10)
+                .fill(Color.white)
                 .frame(width: w + 10, height: h + 10)
             
-            Water_PotWave(progoress: progress, phase: self.phase, maxValue: 2000)
+            Water_Wave(progoress: progress, phase: self.phase)
                 .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)), Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))]), startPoint: .top, endPoint: .bottom))
                 .frame(width: w, height: h, alignment: .center)
-                .clipShape(Rectangle())
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged({ (value) in
+                            
+                            self.progress = 1 - (value.location.y / self.h)
+                            if self.progress < 0 {self.progress = 0.1}
+                            if self.progress > 1 {self.progress = 1.0}
+                            
+                            
+                        })
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 8))
                 .onAppear() {
                     
                     withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: false)) {
@@ -99,7 +66,7 @@ struct WaterPotView : View {
                 Circle()
                     .frame(width: a ?  0 : w / 10, height: a ? 0 : w / 10)
                     .offset(x: w / 4, y: h / 2.8)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.white)
                     .animation(Animation.easeInOut(duration: 0.7).delay(1.5).repeatForever(autoreverses: false))
                     .onAppear {
                         a.toggle()
@@ -108,7 +75,7 @@ struct WaterPotView : View {
                 Circle()
                     .frame(width: b ?  0 : w / 11, height: b ? 0 : w / 11)
                     .offset(x: -w / 4, y: h / 4)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.white)
                     .animation(Animation.easeInOut(duration: 0.5).delay(1.8).repeatForever(autoreverses: true))
                     .onAppear {
                         b.toggle()
@@ -117,7 +84,7 @@ struct WaterPotView : View {
                 Circle()
                     .frame(width: c ? w / 10 : 0, height: c ? 0 : w / 10)
                     .offset(x: -w / 5.5, y: c ? -h / 5.5 : h / 3.5)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.white)
                     .animation(Animation.easeInOut(duration: 2.5).delay(1).repeatForever(autoreverses: false))
                     .onAppear {
                         c.toggle()
@@ -126,7 +93,7 @@ struct WaterPotView : View {
                 Circle()
                     .frame(width: d ? w / 10 : 0, height: d ? 0 : w / 10)
                     .offset(x: w / 5.5, y: d ? -h / 5.5 : h / 4)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.white)
                     .animation(Animation.easeInOut(duration: 2.5).delay(1).repeatForever(autoreverses: false))
                     .onAppear {
                         d.toggle()
@@ -135,21 +102,19 @@ struct WaterPotView : View {
             }
 //
      
-            Text("\(Int(progress)) ml").bold().foregroundColor(.black)
+            Text("\(Int(progress * 100)) %").bold().foregroundColor(.white)
             
         }
+       
+        
     }
 }
 
-
-struct Water_PotWave : Shape {
-    
-    
+struct Water_Wave : Shape {
     let progoress : CGFloat
     var amplitude : CGFloat = 10
     var waterLength : CGFloat = 20
     var phase : CGFloat
-    let maxValue : CGFloat
 //
     var animatableDate : CGFloat {
         get{phase}
@@ -161,7 +126,7 @@ struct Water_PotWave : Shape {
         let width = rect.width
         let height = rect.height
         let midwidth =  width / 2
-        let progressHeight = height * (1 - (progoress / maxValue))
+        let progressHeight = height * (1 - progoress)
         
         path.move(to: CGPoint(x: 0, y: progressHeight))
         
@@ -182,10 +147,8 @@ struct Water_PotWave : Shape {
     }
 }
 
-
-
-struct FillWaterView_Previews: PreviewProvider {
+struct WaterSlider_Previews: PreviewProvider {
     static var previews: some View {
-        WaterAmountView()
+        WaterSlider()
     }
 }

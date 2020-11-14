@@ -14,6 +14,9 @@ class IntervalViewModel : ObservableObject {
     @Published var counter : CGFloat = 0.0
     @Published var isActive : Bool = false
     
+    @Published var showAlert = false
+    @Published var alert : Alert = Alert(title: Text(""))
+
     var rice : Rice = .init(amount: 1)
     
     var intervalTimer : CGFloat {
@@ -117,6 +120,26 @@ class IntervalViewModel : ObservableObject {
         
         envModel.nextPage(Optional<Never>.none)
         
+    }
+    
+    func configureAlert(alerType : AlertType , envModel : RiceModel) {
+        
+        
+        stopTimer()
+        
+        switch alerType {
+        case .Skip :
+            self.alert = Alert(title: Text("この作業を飛ばしますか?"), primaryButton: .cancel({self.stopTimer()}), secondaryButton: .default(Text("スキップ"), action: {
+                self.skipTimer(envModel: envModel)
+            }))
+            
+        case .Finish :
+            self.alert = Alert(title: Text("終了しますか?"), primaryButton: .cancel({self.stopTimer()}), secondaryButton: .destructive(Text("終了する"), action: {
+                self.finishTimer(envModel: envModel)
+            }))
+        }
+        
+        showAlert.toggle()
     }
     
     func caluculateBackground() {

@@ -147,17 +147,19 @@ class HeatViewModel : ObservableObject {
         
     }
     
-    func showAlert(alerType : AlertType , envModel : RiceModel) {
+    func configureAlert(alerType : AlertType , envModel : RiceModel) {
         
+        
+        stopTimer()
         
         switch alerType {
         case .Skip :
-            self.alert = Alert(title: Text("この作業を飛ばしますか?"), primaryButton: .cancel(), secondaryButton: .default(Text("スキップ"), action: {
+            self.alert = Alert(title: Text("この作業を飛ばしますか?"), primaryButton: .cancel({self.stopTimer()}), secondaryButton: .default(Text("スキップ"), action: {
                 self.skipTimer(envModel: envModel)
             }))
             
         case .Finish :
-            self.alert = Alert(title: Text("終了しますか?"), primaryButton: .cancel(), secondaryButton: .destructive(Text("終了する"), action: {
+            self.alert = Alert(title: Text("終了しますか?"), primaryButton: .cancel({self.stopTimer()}), secondaryButton: .destructive(Text("終了する"), action: {
                 self.finishTimer(envModel: envModel)
             }))
         }

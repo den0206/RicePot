@@ -30,7 +30,7 @@ struct HeatView: View {
                 Spacer()
                 
                 Button(action: {
-                    vm.showAlert(alerType: .Skip, envModel: model)
+                    vm.configureAlert(alerType: .Skip, envModel: model)
                 }) {
                     Image(systemName: "arrowshape.turn.up.right")
                         .font(.system(size: 24))
@@ -67,7 +67,7 @@ struct HeatView: View {
             HStack(spacing : 10) {
                 
                 CustomButton(action: {
-                    vm.showAlert(alerType: .Finish, envModel: model)
+                    vm.configureAlert(alerType: .Finish, envModel: model)
                 }, color: Color.blue, text: "終了する")
                
                 CustomButton(action: {

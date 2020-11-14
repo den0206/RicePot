@@ -15,6 +15,7 @@ class RiceModel : ObservableObject {
     @Published var state : ViewState = .Home
     @Published var rice : Rice = .init(amount : 1)
     
+    @AppStorage("amountRice") var amount: Int = 1
     @AppStorage("lastDate") var lastDate: String = ""
 
     func setRiceAmount(amount : Int) {
@@ -22,6 +23,7 @@ class RiceModel : ObservableObject {
         switch amount {
         default:
             rice = Rice(amount: amount)
+            self.amount = amount
         }
         
     }

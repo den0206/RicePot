@@ -14,6 +14,8 @@ struct RicePotApp: App {
     
     var body: some Scene {
         WindowGroup {
+            
+//            WaterSlider()
             RootView().environmentObject(model)
         }
     }
