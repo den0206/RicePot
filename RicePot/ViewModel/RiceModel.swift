@@ -17,6 +17,8 @@ class RiceModel : ObservableObject {
     
     @AppStorage("amountRice") var amount: Int = 1
     @AppStorage("lastDate") var lastDate: String = ""
+    @AppStorage("ShowImage") var showImage : Bool = true
+
 
     func setRiceAmount(amount : Int) {
       

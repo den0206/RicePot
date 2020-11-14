@@ -34,6 +34,7 @@ struct PredicateView: View {
             })
             .padding()
         }
+        .background(model.showImage ? AnyView(backgroundImageView(iIndex: 1)) : AnyView(Color.white))
         .onAppear {
             vm.caluculateDate(model: model)
         }
@@ -51,7 +52,7 @@ struct PredicateCell : View {
         
         
         RoundedRectangle(cornerRadius: 8)
-            .fill(Color.blue.opacity(0.2))
+            .fill(Color.black.opacity(0.2))
             .frame(width: 150, height: 100)
             .overlay(
                 

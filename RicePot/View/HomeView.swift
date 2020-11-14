@@ -13,49 +13,80 @@ struct HomeView: View {
     @State private var selectAmount : Int = 1
     
     @AppStorage("lastDate") var lastDate: String = ""
+    @AppStorage("ShowImage") var showImage : Bool = true
 
     
     var body: some View {
         
-        VStack(spacing : 25) {
+        ZStack {
             
-            if lastDate != "" {
-                Group {
-                    Text("前回炊いた日")
-                        .foregroundColor(.gray)
-                    Text(lastDate)
-                        .fontWeight(.bold)
-
-                }
-                .font(.system(size: 24))
-                
-                
-            }
+            /// Z1
             
-            Picker("", selection: $selectAmount) {
+            VStack(alignment: .trailing) {
                 
-                ForEach(1 ..< 10, id : \.self) { i in
-                    Text("\(i)")
+                HStack {
+                    Spacer()
+                    
+                    VStack {
+                        Toggle("", isOn: $showImage)
+                            .labelsHidden()
+                        
+                        Text(showImage ? "背景画像無し" : "背景画像あり")
+                            .font(.caption2)
+                    }
                 }
+                .padding()
+                Spacer()
             }
-            .labelsHidden()
             .padding()
-            .onAppear {
-                selectAmount = model.amount
-            }
-        
-            Text("\(selectAmount) 合炊く")
-                .font(.system(size: 35))
-                .font(.headline)
-                .fontWeight(.bold)
             
-            CustomButton {
-                model.nextPage(selectAmount)
+            
+            /// Z2
+            VStack(spacing : 25) {
+                
+                Spacer()
+                
+                if lastDate != "" {
+                    Group {
+                        Text("前回炊いた日")
+                            .foregroundColor(.gray)
+                        Text(lastDate)
+                            .fontWeight(.bold)
 
-            }.padding()
-        
+                    }
+                    .font(.system(size: 24))
+                    
+                    
+                }
+                
+                Picker("", selection: $selectAmount) {
+                    
+                    ForEach(1 ..< 10, id : \.self) { i in
+                        Text("\(i)")
+                    }
+                }
+                .labelsHidden()
+                .padding()
+                .onAppear {
+                    selectAmount = model.amount
+                }
             
+                Text("\(selectAmount) 合炊く")
+                    .font(.system(size: 35))
+                    .font(.headline)
+                    .fontWeight(.bold)
+                
+                CustomButton {
+                    model.nextPage(selectAmount)
+
+                }.padding()
+                
+                Spacer()
+            }
         }
+        .background(showImage ? AnyView(backgroundImageView(iIndex: 1)) : AnyView(Color.white))
+           
+        
     }
 }
 

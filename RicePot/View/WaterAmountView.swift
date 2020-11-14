@@ -22,6 +22,8 @@ struct WaterAmountView: View {
             .font(.headline)
             .fontWeight(.bold)
             .padding()
+            
+            Spacer()
 
             WaterPotView(progress: $model.rice.waterAmount)
                 .padding()

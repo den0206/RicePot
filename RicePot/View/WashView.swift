@@ -16,6 +16,7 @@ struct WashView: View {
         
         VStack(spacing : 5) {
             
+            Spacer()
             Text("お米を洗います")
                 .font(.system(size: 35))
                 .font(.headline)
@@ -32,9 +33,12 @@ struct WashView: View {
             })
             .padding()
             
+            Spacer()
+            
             
         }
- 
+        .background(model.showImage ? AnyView(backgroundImageView(iIndex: 1)) : AnyView(Color.white))
+        
     }
 }
 

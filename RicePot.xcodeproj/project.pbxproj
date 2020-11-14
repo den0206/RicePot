@@ -17,10 +17,10 @@
 		3A029C312555754C002A4790 /* Rice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A029C302555754C002A4790 /* Rice.swift */; };
 		3A029C3525557CB4002A4790 /* WashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A029C3425557CB4002A4790 /* WashView.swift */; };
 		3A2F38D1255AAC1200B02325 /* PredicateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F38D0255AAC1200B02325 /* PredicateViewModel.swift */; };
+		3A340E85255F9A1000620878 /* backgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A340E84255F9A1000620878 /* backgroundImageView.swift */; };
 		3A7F76C925558585006F0C31 /* GlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F76C825558585006F0C31 /* GlobalView.swift */; };
 		3A89346F2559E48A00ACAF78 /* PredicateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89346E2559E48A00ACAF78 /* PredicateView.swift */; };
 		3AAB0CD5255C397C00EB164E /* WaterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB0CD4255C397C00EB164E /* WaterSlider.swift */; };
-		3ABAB7CA255F722E0058D226 /* LoopMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAB7C9255F722E0058D226 /* LoopMovieView.swift */; };
 		3AD4592B2557B2B00096F295 /* WaterAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4592A2557B2B00096F295 /* WaterAmountView.swift */; };
 		3AD5D6892557BF6100F7FC44 /* HeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5D6882557BF6100F7FC44 /* HeatView.swift */; };
 		3AD5D68C2557C02000F7FC44 /* HeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5D68B2557C02000F7FC44 /* HeatViewModel.swift */; };
@@ -43,10 +43,10 @@
 		3A029C302555754C002A4790 /* Rice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rice.swift; sourceTree = "<group>"; };
 		3A029C3425557CB4002A4790 /* WashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashView.swift; sourceTree = "<group>"; };
 		3A2F38D0255AAC1200B02325 /* PredicateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredicateViewModel.swift; sourceTree = "<group>"; };
+		3A340E84255F9A1000620878 /* backgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundImageView.swift; sourceTree = "<group>"; };
 		3A7F76C825558585006F0C31 /* GlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalView.swift; sourceTree = "<group>"; };
 		3A89346E2559E48A00ACAF78 /* PredicateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredicateView.swift; sourceTree = "<group>"; };
 		3AAB0CD4255C397C00EB164E /* WaterSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSlider.swift; sourceTree = "<group>"; };
-		3ABAB7C9255F722E0058D226 /* LoopMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopMovieView.swift; sourceTree = "<group>"; };
 		3AD4592A2557B2B00096F295 /* WaterAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterAmountView.swift; sourceTree = "<group>"; };
 		3AD5D6882557BF6100F7FC44 /* HeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatView.swift; sourceTree = "<group>"; };
 		3AD5D68B2557C02000F7FC44 /* HeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatViewModel.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 				3A7F76C825558585006F0C31 /* GlobalView.swift */,
 				3AD5D68F2557C80500F7FC44 /* WeakHeatView.swift */,
 				3AAB0CD4255C397C00EB164E /* WaterSlider.swift */,
-				3ABAB7C9255F722E0058D226 /* LoopMovieView.swift */,
+				3A340E84255F9A1000620878 /* backgroundImageView.swift */,
 			);
 			path = GlobalView;
 			sourceTree = "<group>";
@@ -224,10 +224,10 @@
 				3A2F38D1255AAC1200B02325 /* PredicateViewModel.swift in Sources */,
 				3A029C2825556F05002A4790 /* RootView.swift in Sources */,
 				3ADBC98E25561ADC003D31E0 /* IntervalView.swift in Sources */,
-				3ABAB7CA255F722E0058D226 /* LoopMovieView.swift in Sources */,
 				3ADBC9872556171C003D31E0 /* ProgressCircleView.swift in Sources */,
 				3AAB0CD5255C397C00EB164E /* WaterSlider.swift in Sources */,
 				3A029C1325556DC9002A4790 /* ContentView.swift in Sources */,
+				3A340E85255F9A1000620878 /* backgroundImageView.swift in Sources */,
 				3A029C312555754C002A4790 /* Rice.swift in Sources */,
 				3A029C2325556E3C002A4790 /* RiceModel.swift in Sources */,
 				3ADBC99225561CEF003D31E0 /* IntervalViewModel.swift in Sources */,

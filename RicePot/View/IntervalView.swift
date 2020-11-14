@@ -25,6 +25,7 @@ struct IntervalView: View {
         
         VStack(spacing : 20){
             
+            
             HStack {
                 Spacer()
                 
@@ -69,9 +70,11 @@ struct IntervalView: View {
             }
             .padding()
             
-        
+            Spacer()
+
             
         }
+        .background(model.showImage ? AnyView(backgroundImageView(iIndex: 1)) : AnyView(Color.white))
         .alert(isPresented: $vm.showAlert, content: { () -> Alert in
             vm.alert
         })
