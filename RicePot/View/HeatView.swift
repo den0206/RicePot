@@ -26,7 +26,6 @@ struct HeatView: View {
         
         VStack(spacing : 20) {
             
-            
             HStack {
                 Spacer()
                 
@@ -46,14 +45,46 @@ struct HeatView: View {
             
             case .Strong :
                 
-                Text("Strong")
+                VStack(spacing : 10) {
+                    
+                    Text("強火")
+                        .fontWeight(.semibold)
+                    
+                    HStack(spacing : 5) {
+                        
+                        ForEach(0..<3) { i in
+                            Image(systemName: "flame.fill")
+                                .font(.system(size: 48))
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+                .padding()
+                
+              
 
                 ProgressCircleView(circleColor: Color.red, maxValue: vm.heatTimer, progress: $vm.counter, timeString: vm.timeFormatter, predicateTime: vm.predicateTimeString)
                     .onReceive(vm.timer) { (_) in
                         vm.onComplete(envModel: model)
                     }
             case .Weak :
-                Text("Weak")
+                
+                VStack(spacing : 10) {
+                    
+                    Text("弱火")
+                        .fontWeight(.semibold)
+                    
+                    HStack(spacing : 5) {
+                        
+                        ForEach(0..<3) { i in
+                            Image(systemName: "flame.fill")
+                                .font(.system(size: 32))
+                                .foregroundColor(.blue)
+                        }
+                    }
+                }
+                .padding()
+                
                 
                 ProgressCircleView(circleColor: Color.blue, maxValue: vm.heatTimer, progress: $vm.counter, timeString: vm.timeFormatter, predicateTime: vm.predicateTimeString)
                     .onReceive(vm.timer) { (_) in

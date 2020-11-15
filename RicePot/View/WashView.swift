@@ -22,6 +22,8 @@ struct WashView: View {
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding()
+            
+            Spacer()
                         
             Text("※無洗米を除く")
                 .font(.system(size: 25))

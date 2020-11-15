@@ -14,6 +14,8 @@ class RiceModel : ObservableObject {
     
     @Published var state : ViewState = .Home
     @Published var rice : Rice = .init(amount : 1)
+    @Published var showOnboadind : Bool = true
+    
     
     @AppStorage("amountRice") var amount: Int = 1
     @AppStorage("lastDate") var lastDate: String = ""

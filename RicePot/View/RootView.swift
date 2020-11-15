@@ -27,24 +27,33 @@ struct RootView: View {
     
     var body: some View {
         
-        switch  model.state {
-        
-        case .Home :
-            HomeView()
-        case .Wash :
-            WashView()
-        case .Predicate :
-            PredicateView()
-        case .Intarval :
-            IntervalView(type: .Puton)
-        case .WaterAmount :
-            WaterAmountView()
-        case .StrongHeat:
-            HeatView(type: .Strong)
-        case .WeakHeat :
-            HeatView(type: .Weak)
-        case .Boil :
-            IntervalView(type: .Boil)
+        if model.showOnboadind {
+            
+            OnBoadingView()
+            
+        } else {
+            
+            switch  model.state {
+            
+            case .Home :
+                HomeView()
+            case .Wash :
+                WashView()
+            case .Predicate :
+                PredicateView()
+            case .Intarval :
+                IntervalView(type: .Puton)
+            case .WaterAmount :
+                WaterAmountView()
+            case .StrongHeat:
+                HeatView(type: .Strong)
+            case .WeakHeat :
+                HeatView(type: .Weak)
+            case .Boil :
+                IntervalView(type: .Boil)
+            }
         }
+        
+        
     }
 }
