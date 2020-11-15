@@ -24,6 +24,7 @@ struct PredicateView: View {
             ForEach(Array(zip(vm.actions, vm.dateStrings)), id : \.0) { item in
                 
                 PredicateCell(action: item.0, dateString: item.1)
+                    .transition(.slide)
                 
             }
             

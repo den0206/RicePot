@@ -10,36 +10,54 @@ import SwiftUI
 struct WashView: View {
     
     @EnvironmentObject var model : RiceModel
-    
+    @State private var showAnimation : Bool = false
+
     
     var body: some View {
         
-        VStack(spacing : 5) {
+        ZStack {
             
-            Spacer()
-            Text("お米を洗います")
-                .font(.system(size: 35))
-                .font(.headline)
-                .fontWeight(.bold)
-                .padding()
+            WashBackGroundView()
+                .ignoresSafeArea(.all, edges: .all)
+                .onTapGesture(perform: {
+                    self.showAnimation = true
+                })
             
-            Spacer()
+            if showAnimation {
+                
+                VStack(spacing : 5) {
+                    
+                    Spacer()
+
+                        Text("お米を洗います")
+                            .font(.system(size: 35))
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .padding()
                         
-            Text("※無洗米を除く")
-                .font(.system(size: 25))
-                .font(.caption2)
-                .foregroundColor(.red)
+                                    
+                        Text("※無洗米を除く")
+                            .font(.system(size: 25))
+                            .font(.caption2)
+                            .foregroundColor(.red)
+                        
+                        CustomButton(action: {
+                            model.nextPage(Optional<Never>.none)
+                        })
+                        .padding()
+                 
+
+                   
+                    Spacer()
+                }
+                .transition(.opacity)
+            }
             
-            CustomButton(action: {
-                model.nextPage(Optional<Never>.none)
-            })
-            .padding()
-            
-            Spacer()
-            
-            
+           
         }
-        .background(model.showImage ? AnyView(backgroundImageView(iIndex: 1)) : AnyView(Color.white))
+        
+      
+        
         
     }
 }

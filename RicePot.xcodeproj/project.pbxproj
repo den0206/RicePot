@@ -21,6 +21,7 @@
 		3A340E85255F9A1000620878 /* backgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A340E84255F9A1000620878 /* backgroundImageView.swift */; };
 		3A7F76C925558585006F0C31 /* GlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F76C825558585006F0C31 /* GlobalView.swift */; };
 		3A89346F2559E48A00ACAF78 /* PredicateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89346E2559E48A00ACAF78 /* PredicateView.swift */; };
+		3A95F2662560EB0200DF198E /* WashBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A95F2652560EB0200DF198E /* WashBackGroundView.swift */; };
 		3AAB0CD5255C397C00EB164E /* WaterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB0CD4255C397C00EB164E /* WaterSlider.swift */; };
 		3AD4592B2557B2B00096F295 /* WaterAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4592A2557B2B00096F295 /* WaterAmountView.swift */; };
 		3AD5D6892557BF6100F7FC44 /* HeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5D6882557BF6100F7FC44 /* HeatView.swift */; };
@@ -48,6 +49,7 @@
 		3A340E84255F9A1000620878 /* backgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundImageView.swift; sourceTree = "<group>"; };
 		3A7F76C825558585006F0C31 /* GlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalView.swift; sourceTree = "<group>"; };
 		3A89346E2559E48A00ACAF78 /* PredicateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredicateView.swift; sourceTree = "<group>"; };
+		3A95F2652560EB0200DF198E /* WashBackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashBackGroundView.swift; sourceTree = "<group>"; };
 		3AAB0CD4255C397C00EB164E /* WaterSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSlider.swift; sourceTree = "<group>"; };
 		3AD4592A2557B2B00096F295 /* WaterAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterAmountView.swift; sourceTree = "<group>"; };
 		3AD5D6882557BF6100F7FC44 /* HeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				3A7F76C825558585006F0C31 /* GlobalView.swift */,
 				3AD5D68F2557C80500F7FC44 /* WeakHeatView.swift */,
 				3AAB0CD4255C397C00EB164E /* WaterSlider.swift */,
+				3A95F2652560EB0200DF198E /* WashBackGroundView.swift */,
 				3A340E84255F9A1000620878 /* backgroundImageView.swift */,
 			);
 			path = GlobalView;
@@ -238,6 +241,7 @@
 				3AD4592B2557B2B00096F295 /* WaterAmountView.swift in Sources */,
 				3A029C2D25556FD9002A4790 /* HomeView.swift in Sources */,
 				3A029C1125556DC9002A4790 /* RicePotApp.swift in Sources */,
+				3A95F2662560EB0200DF198E /* WashBackGroundView.swift in Sources */,
 				3A89346F2559E48A00ACAF78 /* PredicateView.swift in Sources */,
 				3AD5D6902557C80500F7FC44 /* WeakHeatView.swift in Sources */,
 				3AD5D68C2557C02000F7FC44 /* HeatViewModel.swift in Sources */,

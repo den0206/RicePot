@@ -44,9 +44,21 @@ struct IntervalView: View {
             switch type {
             
             case .Puton :
-                Text("Puton")
+                Image("before-pot")
+                    .resizable()
+                    .renderingMode(.template)
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(Color.gray)
+                    .padding()
+                    
             case .Boil :
-                Text("Boil")
+                Image("after-pot")
+                    .resizable()
+                    .renderingMode(.template)
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(Color.gray)
+                    .padding()
+
             }
        
             ProgressCircleView(circleColor: Color.green, maxValue: vm.intervalTimer, progress: $vm.counter, timeString: vm.timeFormatter, predicateTime: vm.predicateTimeString)

@@ -11,7 +11,6 @@ import SwiftUI
 
 class RiceModel : ObservableObject {
     
-    
     @Published var state : ViewState = .Home
     @Published var rice : Rice = .init(amount : 1)
     @Published var showOnboadind : Bool = true

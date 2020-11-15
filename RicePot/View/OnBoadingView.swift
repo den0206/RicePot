@@ -38,7 +38,7 @@ struct OnBoadingView: View {
                     Capsule()
                         .fill(Color.white.opacity(0.1))
                     
-                    Text("Swipr To STart")
+                    Text("Swipe To Start")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding(.leading, 30)
